@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import AppActions from './../actions/AppActions';
-import { Button,  Col, ControlLabel, Form, FormControl, FormGroup } from "react-bootstrap";
+import bindValueTo, { bindCheckedTo, bindMultiLineToArray } from '../lib/bindValueTo';
+import { Button, Col, ControlLabel, Form, FormControl, FormGroup } from "react-bootstrap";
 import { NotificationManager } from 'react-notifications';
-import { post } from './../lib/http';
-import bindValueTo from '../lib/bindValueTo';
-
+import { get, put, post, del } from './../lib/http';
 
 export class NameData extends Component {
   static displayName = NameData.name;
