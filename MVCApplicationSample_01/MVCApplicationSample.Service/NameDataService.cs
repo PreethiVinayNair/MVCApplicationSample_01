@@ -15,8 +15,6 @@ namespace MVCApplicationSample.Service
       var array = new[] { model };
       String json = Newtonsoft.Json.JsonConvert.SerializeObject(array);
       string path = @"C:\temp\";
-      //// Write that JSON to txt file,  
-      //var read = System.IO.File.ReadAllText(path + "output.json");
       System.IO.File.WriteAllText(path + "output.json", json);
       return Task.FromResult((object)new { });
     }

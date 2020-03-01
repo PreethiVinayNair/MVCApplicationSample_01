@@ -7,6 +7,6 @@ namespace MVCApplicationSample.Service
   public class NameDataModel
   {
     public string FirstName { get; set; }
-    public string LasttName { get; set; }
+    public string LastName { get; set; }
   }
 }

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import AppActions from './../actions/AppActions';
-import bindValueTo, { bindCheckedTo, bindMultiLineToArray } from '../lib/bindValueTo';
+import bindValueTo from '../lib/bindValueTo';
 import { Button, Col, ControlLabel, Form, FormControl, FormGroup } from "react-bootstrap";
 import { NotificationManager } from 'react-notifications';
-import { get, put, post, del } from './../lib/http';
+import { post } from './../lib/http';
 
 export class NameData extends Component {
   static displayName = NameData.name;
@@ -43,7 +42,7 @@ export class NameData extends Component {
                 LastName
                         </Col>
               <Col sm={10}>
-                <FormControl type="number" value={datacollection.lastname}
+                <FormControl type="text" value={datacollection.lastname}
                   onChange={bindValueTo('datacollection.lastname')} />
               </Col>
             </FormGroup>
