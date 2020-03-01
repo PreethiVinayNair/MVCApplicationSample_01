@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 import AppActions from './../actions/AppActions';
-import { get, post } from "../lib/http";
+import { Button,  Col, ControlLabel, Form, FormControl, FormGroup } from "react-bootstrap";
+import { NotificationManager } from 'react-notifications';
+import { post } from './../lib/http';
+import bindValueTo from '../lib/bindValueTo';
 
 
-export class PostNameData extends Component {
-  static displayName = PostNameData.name;
+export class NameData extends Component {
+  static displayName = NameData.name;
 
   constructor(props) {
     super(props);
-    PostNameData.update();
   }
 
   save() {
-    post('api/postnamedata', datacollection, (content) => {
+    const { datacollection } = this.props;
+    post('api/namedata', datacollection, (content) => {
       NotificationManager.success('Name added');
-      history.push(`/postnamedata/${content.id}`);
     });
   }
-
-
 
 
   render() {
@@ -48,6 +48,11 @@ export class PostNameData extends Component {
                   onChange={bindValueTo('datacollection.lastname')} />
               </Col>
             </FormGroup>
+            <FormGroup>
+              <Col smOffset={2} sm={10}>
+                <Button onClick={() => this.save()}>Save</Button>
+              </Col>
+            </FormGroup>
             </Form>
         </div>
       </div>
@@ -57,7 +62,7 @@ export class PostNameData extends Component {
 
 }
 
-PostNameData.defaultProps = {
+NameData.defaultProps = {
   loading: false,
   datacollection: []
 }

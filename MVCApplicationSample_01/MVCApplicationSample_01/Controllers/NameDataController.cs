@@ -6,7 +6,7 @@ using System;
 namespace VMS.Controllers
 {
 
-  [Route("api/vehiclemanagement")]
+  [Route("api/namedata")]
   [ApiController]
   public class NameDataController : Controller
   {
@@ -14,15 +14,15 @@ namespace VMS.Controllers
 
     public NameDataController(INameDataService nameDataService)
     {
-      this.INameDataService = nameDataService;
+      this.nameDataService = nameDataService;
     }
     [HttpPost]
     [Route("")]
-    public IActionResult CreateVehicle([FromBody] NameModel model)
+    public async Task<IActionResult>  CreateNameData([FromBody] NameDataModel model)
     {
-      var namecollection = nameDataService.CreateName(model);
+       var result=await nameDataService.CreateName(model);
 
-      return Ok(new { namecollection.Id });
+      return Ok(result);
     }
   }
 }
