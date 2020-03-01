@@ -6,8 +6,8 @@ export class Home extends Component {
   render () {
     return (
       <div>
-        <h1>Hello, world!</h1>
-        <p>WA Sample Application which gets frist name and last name and posts to a file</p>
+        <h1>Data Collection Sample</h1>
+        <p>Sample Application which gets frist name and last name and posts to a file</p>
            
       </div>
     );
